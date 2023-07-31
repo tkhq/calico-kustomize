@@ -1,0 +1,9 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+commonLabels:
+  app.kubernetes.io/component: calico-kube-controllers
+resources:
+  - resources.yaml
+images:
+  - name: docker.io/calico/kube-controllers
+    newTag: v3.26.1@sha256:01ce29ea8f2b34b6cef904f526baed98db4c0581102f194e36f2cd97943f77aa

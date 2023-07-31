@@ -1,0 +1,21 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - crd-bgpconfigurations.yaml
+  - crd-bgpfilters.yaml
+  - crd-bgppeers.yaml
+  - crd-blockaffinities.yaml
+  - crd-caliconodestatuses.yaml
+  - crd-clusterinformations.yaml
+  - crd-felixconfigurations.yaml
+  - crd-globalnetworkpolicies.yaml
+  - crd-globalnetworksets.yaml
+  - crd-hostendpoints.yaml
+  - crd-ipamblocks.yaml
+  - crd-ipamconfigs.yaml
+  - crd-ipamhandles.yaml
+  - crd-ippools.yaml
+  - crd-ipreservations.yaml
+  - crd-kubecontrollersconfigurations.yaml
+  - crd-networkpolicies.yaml
+  - crd-networksets.yaml

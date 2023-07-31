@@ -1,0 +1,12 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+commonLabels:
+  app.kubernetes.io/component: calico-node
+resources:
+  - resources.yaml
+  - calico-cni-plugin.yaml
+images:
+  - name: docker.io/calico/cni
+    newTag: v3.26.1@sha256:3be3c67ddba17004c292eafec98cc49368ac273b40b27c8a6621be4471d348d6
+  - name: docker.io/calico/node
+    newTag: v3.26.1@sha256:8e34517775f319917a0be516ed3a373dbfca650d1ee8e72158087c24356f47fb
