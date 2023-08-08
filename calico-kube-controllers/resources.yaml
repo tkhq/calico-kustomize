@@ -136,6 +136,9 @@ spec:
               value: node
             - name: DATASTORE_TYPE
               value: kubernetes
+          ports:
+            - name: metrics
+              containerPort: 9094
           livenessProbe:
             exec:
               command:
@@ -151,3 +154,11 @@ spec:
               - /usr/bin/check-status
               - -r
             periodSeconds: 10
+---
+apiVersion: monitoring.coreos.com/v1
+kind: PodMonitor
+metadata:
+  name: calico-kube-controllers
+spec:
+  podMetricsEndpoints:
+    - port: metrics

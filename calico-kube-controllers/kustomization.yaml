@@ -3,6 +3,7 @@ kind: Kustomization
 commonLabels:
   app.kubernetes.io/component: calico-kube-controllers
 resources:
+  - ../configurations/prometheus-operator
   - resources.yaml
 images:
   - name: docker.io/calico/kube-controllers
