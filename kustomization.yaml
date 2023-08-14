@@ -15,6 +15,81 @@ patches:
       - op: add
         path: /spec/podMetricsEndpoints/0/interval
         value: 1h
+  - # The CNI network configuration to install on each node. The special
+    # values in this config will be automatically populated.
+    #
+    # Upstream, calico usually does this via a configmap field `cni_network_config`
+    #
+    # Instead, so that we can turn on ipv6 assignment more easily, we have the
+    # literal network config here where we can use kubernetes' $() based templating
+    #
+    # This patches introduces the variable:
+    #   - `CALICO_IPAM_ASSIGN_IPV6` (defaulted to `false`; the upstream default in calico)
+    patch: |
+      apiVersion: apps/v1
+      kind: DaemonSet
+      metadata:
+        name: calico-node
+      spec:
+        template:
+          spec:
+            initContainers:
+              - name: install-cni
+                env:
+                  - name: CALICO_IPAM_ASSIGN_IPV6
+                    value: "false"
+                  - name: CNI_NETWORK_CONFIG
+                    value: |
+                      {
+                        "name": "k8s-pod-network",
+                        "cniVersion": "0.3.1",
+                        "plugins": [
+                          {
+                            "type": "calico",
+                            "log_level": "info",
+                            "log_file_path": "/var/log/calico/cni/cni.log",
+                            "datastore_type": "kubernetes",
+                            "nodename": "__KUBERNETES_NODE_NAME__",
+                            "mtu": __CNI_MTU__,
+                            "ipam": {
+                                "type": "calico-ipam",
+                                "assign_ipv4": "true",
+                                "assign_ipv6": "$(CALICO_IPAM_ASSIGN_IPV6)"
+                            },
+                            "policy": {
+                                "type": "k8s"
+                            },
+                            "kubernetes": {
+                                "kubeconfig": "__KUBECONFIG_FILEPATH__"
+                            }
+                          },
+                          {
+                            "type": "portmap",
+                            "snat": true,
+                            "capabilities": {"portMappings": true}
+                          },
+                          {
+                            "type": "bandwidth",
+                            "capabilities": {"bandwidth": true}
+                          }
+                        ]
+                      }
+  - # Enable IPv6
+    patch: |
+      apiVersion: apps/v1
+      kind: DaemonSet
+      metadata:
+        name: calico-node
+      spec:
+        template:
+          spec:
+            containers:
+              - name: calico-node
+                env:
+                  - name: IPv6
+                    value: "autodetect"
+                  - name: FELIX_IPV6SUPPORT
+                    value: "true"
 configMapGenerator:
   - name: calico-config
     options:
@@ -28,38 +103,3 @@ configMapGenerator:
         # By default, MTU is auto-detected, and explicitly setting this field should not be required.
         # You can override auto-detection by providing a non-zero value.
         veth_mtu=0
-      - # The CNI network configuration to install on each node. The special
-        # values in this config will be automatically populated.
-        |-
-        cni_network_config={
-            "name": "k8s-pod-network",
-            "cniVersion": "0.3.1",
-            "plugins": [
-              {
-                "type": "calico",
-                "log_level": "info",
-                "log_file_path": "/var/log/calico/cni/cni.log",
-                "datastore_type": "kubernetes",
-                "nodename": "__KUBERNETES_NODE_NAME__",
-                "mtu": __CNI_MTU__,
-                "ipam": {
-                    "type": "calico-ipam"
-                },
-                "policy": {
-                    "type": "k8s"
-                },
-                "kubernetes": {
-                    "kubeconfig": "__KUBECONFIG_FILEPATH__"
-                }
-              },
-              {
-                "type": "portmap",
-                "snat": true,
-                "capabilities": {"portMappings": true}
-              },
-              {
-                "type": "bandwidth",
-                "capabilities": {"bandwidth": true}
-              }
-            ]
-          }
