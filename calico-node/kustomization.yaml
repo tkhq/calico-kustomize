@@ -9,4 +9,4 @@ images:
   - name: docker.io/calico/cni
     newTag: v3.26.2@sha256:1934de37243fbd7d064462c43ad64cdda719e1e26196bbf5266cb482f83e501d
   - name: docker.io/calico/node
-    newTag: v3.26.1@sha256:8e34517775f319917a0be516ed3a373dbfca650d1ee8e72158087c24356f47fb
+    newTag: v3.26.2@sha256:3730f7be45722263082ae6f83bd114b27e8553b72e13151b4f21664521cb4287
