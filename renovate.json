@@ -1,0 +1,16 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended"
+  ],
+  "commitMessagePrefix": "{{packageFileDir}}:",
+  "commitMessageAction": "update",
+  "packageRules": [
+    {
+      "matchPackagePrefixes": [
+        "docker.io/calico/"
+      ],
+      "groupName": "calico"
+    }
+  ]
+}
