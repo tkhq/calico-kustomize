@@ -7,6 +7,6 @@ resources:
   - calico-cni-plugin.yaml
 images:
   - name: docker.io/calico/cni
-    newTag: v3.26.4@sha256:7c5895c5d6ed3266bcd405fbcdbb078ca484688673c3479f0f18bf072d58c242
+    newTag: v3.27.0@sha256:2d38b2f9a14cf2a6f3e0381e72e2c802e6a811e5a2f61abbe413cd6d5dccba15
   - name: docker.io/calico/node
-    newTag: v3.26.4@sha256:a8b77a5f27b167501465f7f5fb7601c44af4df8dccd1c7201363bbb301d1fe40
+    newTag: v3.27.0@sha256:58cd8f6547b4f438f36a1cd7030985f153eca22d78d86dc9cd6f0fe4f32d01bf
