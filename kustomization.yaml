@@ -6,6 +6,15 @@ resources:
   - ./crds
   - ./calico-kube-controllers
   - ./calico-node
+patches:
+  - # Turn down metric collection interval for metrics we don't really watch
+    # this is done to save money on metrics
+    target:
+      kind: PodMonitor
+    patch: |
+      - op: add
+        path: /spec/podMetricsEndpoints/0/interval
+        value: 1h
 configMapGenerator:
   - name: calico-config
     options:
