@@ -344,6 +344,7 @@ spec:
           resources:
             requests:
               cpu: 250m
+              memory: 128Mi
           lifecycle:
             preStop:
               exec:

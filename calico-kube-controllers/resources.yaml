@@ -154,6 +154,10 @@ spec:
               - /usr/bin/check-status
               - -r
             periodSeconds: 10
+          resources:
+            requests:
+              cpu: 10m
+              memory: 50Mi
 ---
 apiVersion: monitoring.coreos.com/v1
 kind: PodMonitor
