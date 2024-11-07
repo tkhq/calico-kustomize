@@ -42,6 +42,7 @@ rules:
       - blockaffinities
       - ipamblocks
       - ipamhandles
+      - tiers
     verbs:
       - get
       - list
@@ -158,6 +159,8 @@ spec:
             requests:
               cpu: 10m
               memory: 50Mi
+          securityContext:
+            runAsNonRoot: true
 ---
 apiVersion: monitoring.coreos.com/v1
 kind: PodMonitor

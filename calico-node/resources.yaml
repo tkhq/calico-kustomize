@@ -63,6 +63,13 @@ rules:
     verbs:
       - watch
       - list
+  # Watch for changes to Kubernetes AdminNetworkPolicies.
+  - apiGroups: ["policy.networking.k8s.io"]
+    resources:
+      - adminnetworkpolicies
+    verbs:
+      - watch
+      - list
   # Used by Calico for policy information.
   - apiGroups: [""]
     resources:
@@ -98,6 +105,7 @@ rules:
       - hostendpoints
       - blockaffinities
       - caliconodestatuses
+      - tiers
     verbs:
       - get
       - list
