@@ -1,21 +1,23 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-  - crd-bgpconfigurations.yaml
-  - crd-bgpfilters.yaml
-  - crd-bgppeers.yaml
-  - crd-blockaffinities.yaml
-  - crd-caliconodestatuses.yaml
-  - crd-clusterinformations.yaml
-  - crd-felixconfigurations.yaml
-  - crd-globalnetworkpolicies.yaml
-  - crd-globalnetworksets.yaml
-  - crd-hostendpoints.yaml
-  - crd-ipamblocks.yaml
-  - crd-ipamconfigs.yaml
-  - crd-ipamhandles.yaml
-  - crd-ippools.yaml
-  - crd-ipreservations.yaml
-  - crd-kubecontrollersconfigurations.yaml
-  - crd-networkpolicies.yaml
-  - crd-networksets.yaml
+  - crd.projectcalico.org_bgpconfigurations.yaml
+  - crd.projectcalico.org_bgpfilters.yaml
+  - crd.projectcalico.org_bgppeers.yaml
+  - crd.projectcalico.org_blockaffinities.yaml
+  - crd.projectcalico.org_caliconodestatuses.yaml
+  - crd.projectcalico.org_clusterinformations.yaml
+  - crd.projectcalico.org_felixconfigurations.yaml
+  - crd.projectcalico.org_globalnetworkpolicies.yaml
+  - crd.projectcalico.org_globalnetworksets.yaml
+  - crd.projectcalico.org_hostendpoints.yaml
+  - crd.projectcalico.org_ipamblocks.yaml
+  - crd.projectcalico.org_ipamconfigs.yaml
+  - crd.projectcalico.org_ipamhandles.yaml
+  - crd.projectcalico.org_ippools.yaml
+  - crd.projectcalico.org_ipreservations.yaml
+  - crd.projectcalico.org_kubecontrollersconfigurations.yaml
+  - crd.projectcalico.org_networkpolicies.yaml
+  - crd.projectcalico.org_networksets.yaml
+  - crd.projectcalico.org_tiers.yaml
+  - policy.networking.k8s.io_adminnetworkpolicies.yaml
