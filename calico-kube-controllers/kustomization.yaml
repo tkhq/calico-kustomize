@@ -7,4 +7,4 @@ resources:
   - resources.yaml
 images:
   - name: docker.io/calico/kube-controllers
-    newTag: v3.29.2@sha256:4313495b1ce8bcd2c573b338761323fedbfe1f1fb6d1865dc76a8577ed8a7387
+    newTag: v3.29.3@sha256:5516ab776c38525fcc985a3030b4f2fd472da68b4170601c23bf6887bfdce703
