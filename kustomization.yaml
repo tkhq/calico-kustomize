@@ -87,9 +87,11 @@ patches:
             containers:
               - name: calico-node
                 env:
-                  - name: IPv6
+                  - name: IP6
                     value: "autodetect"
                   - name: FELIX_IPV6SUPPORT
+                    value: "true"
+                  - name: CALICO_IPV6POOL_NAT_OUTGOING
                     value: "true"
 configMapGenerator:
   - name: calico-config
