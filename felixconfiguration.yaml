@@ -1,0 +1,26 @@
+apiVersion: crd.projectcalico.org/v1
+kind: FelixConfiguration
+metadata:
+  name: default
+spec:
+  failsafeInboundHostPorts:
+    - # DHCP
+      protocol: udp
+      port: 68
+    - # etcd client
+      protocol: tcp
+      port: 2379
+    - # etcd peer
+      protocol: tcp
+      port: 2380
+    - # kubernetes API
+      protocol: tcp
+      port: 6443
+    - # talos
+      protocol: tcp
+      port: 50000
+    - # talos trustd
+      protocol: tcp
+      port: 50001
+  logSeverityScreen: Warning
+  vxlanPort: 4789

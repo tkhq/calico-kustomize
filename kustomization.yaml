@@ -6,6 +6,7 @@ resources:
   - ./crds
   - ./calico-kube-controllers
   - ./calico-node
+  - felixconfiguration.yaml
 patches:
   - # Turn down metric collection interval for metrics we don't really watch
     # this is done to save money on metrics
