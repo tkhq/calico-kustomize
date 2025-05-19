@@ -19,5 +19,9 @@ resources:
   - crd.projectcalico.org_kubecontrollersconfigurations.yaml
   - crd.projectcalico.org_networkpolicies.yaml
   - crd.projectcalico.org_networksets.yaml
+  - crd.projectcalico.org_stagedglobalnetworkpolicies.yaml
+  - crd.projectcalico.org_stagedkubernetesnetworkpolicies.yaml
+  - crd.projectcalico.org_stagednetworkpolicies.yaml
   - crd.projectcalico.org_tiers.yaml
   - policy.networking.k8s.io_adminnetworkpolicies.yaml
+  - policy.networking.k8s.io_baselineadminnetworkpolicies.yaml
