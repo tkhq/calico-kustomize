@@ -8,4 +8,4 @@ resources:
   - tier-getter.yaml
 images:
   - name: docker.io/calico/kube-controllers
-    newTag: v3.31.0@sha256:1d3ff1cbb6dc8b0ed4736e92923b0b111705f48803f77a3e5bc54c5b00149e8c
+    newTag: v3.31.2@sha256:7308b279c79816c9386a593644814a7f0f5caaf3b753982cbf226953782524ee
