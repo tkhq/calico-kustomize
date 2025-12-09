@@ -1,0 +1,16 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: calico-node
+spec:
+  secretName: calico-node-tls
+  commonName: calico-node
+  dnsNames:
+    - calico-node
+    - calico-node.default
+    - calico-node.default.svc
+
+  issuerRef:
+    name: cluster-ca
+    kind: ClusterIssuer
+    group: cert-manager.io

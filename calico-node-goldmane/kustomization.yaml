@@ -1,0 +1,36 @@
+apiVersion: kustomize.config.k8s.io/v1alpha1
+kind: Component
+
+resources:
+  - calico-node-cert.yaml
+
+patches:
+  - patch: |
+      apiVersion: apps/v1
+      kind: DaemonSet
+      metadata:
+        name: calico-node
+      spec:
+        template:
+          spec:
+            containers:
+              - name: calico-node
+                env:
+                  # Used for mTLS with Goldmane
+                  - name: FELIX_TYPHACERTFILE
+                    value: /calico-node-key-pair/tls.crt
+                  - name: FELIX_TYPHAKEYFILE
+                    value: /calico-node-key-pair/tls.key
+                  - name: FELIX_TYPHACAFILE
+                    value: /calico-node-key-pair/ca.crt
+                  - name: FELIX_TYPHACN
+                    value: goldmane
+                volumeMounts:
+                  - mountPath: /calico-node-key-pair
+                    name: calico-node-key-pair
+                    readOnly: true
+            volumes:
+              # Used for mTLS with Goldmane
+              - name: calico-node-key-pair
+                secret:
+                  secretName: calico-node-tls
