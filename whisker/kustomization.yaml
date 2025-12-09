@@ -1,0 +1,11 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+commonLabels:
+  app.kubernetes.io/component: whisker
+resources:
+  - resources.yaml
+images:
+  - name: docker.io/calico/whisker
+    newTag: v3.31.0@sha256:520cb8961232fe8bda4a8e26fc6e53ee064f1b24e855b6f953c81c6e6e4808fd
+  - name: docker.io/calico/whisker-backend
+    newTag: v3.31.0@sha256:0cce01e531f45438fbeca7d6e7e295d03fe6d2316a09ab35150d2839f2f5905a
