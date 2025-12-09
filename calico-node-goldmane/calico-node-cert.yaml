@@ -7,8 +7,6 @@ spec:
   commonName: calico-node
   dnsNames:
     - calico-node
-    - calico-node.default
-    - calico-node.default.svc
 
   issuerRef:
     name: cluster-ca

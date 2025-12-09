@@ -99,8 +99,6 @@ spec:
   commonName: whisker-backend
   dnsNames:
     - whisker-backend
-    - whisker-backend.default
-    - whisker-backend.default.svc
 
   usages:
     - client auth
