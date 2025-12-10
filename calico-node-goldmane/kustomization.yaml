@@ -34,3 +34,10 @@ patches:
               - name: calico-node-key-pair
                 secret:
                   secretName: calico-node-tls
+  - patch: |
+      apiVersion: crd.projectcalico.org/v1
+      kind: FelixConfiguration
+      metadata:
+        name: default
+      spec:
+        flowLogsGoldmaneServer: goldmane:7443
