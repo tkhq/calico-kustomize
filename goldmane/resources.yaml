@@ -44,6 +44,11 @@ spec:
               cpu: 50m
               memory: 100Mi
           image: docker.io/calico/goldmane
+          ports:
+            - name: grpc
+              containerPort: 7443
+            - name: health
+              containerPort: 8080
           livenessProbe:
             exec:
               command:
