@@ -13,6 +13,7 @@ patches:
       spec:
         template:
           spec:
+            dnsPolicy: ClusterFirstWithHostNet
             containers:
               - name: calico-node
                 env:
