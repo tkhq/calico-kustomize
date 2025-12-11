@@ -34,6 +34,8 @@ spec:
               cpu: 10m
               memory: 50Mi
           image: docker.io/calico/whisker
+          ports:
+            - containerPort: 8081
           securityContext:
             allowPrivilegeEscalation: false
             capabilities:
@@ -64,6 +66,8 @@ spec:
               cpu: 10m
               memory: 50Mi
           image: docker.io/calico/whisker-backend
+          ports:
+            - containerPort: 3002
           securityContext:
             allowPrivilegeEscalation: false
             capabilities:
