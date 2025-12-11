@@ -80,9 +80,9 @@ spec:
             seccompProfile:
               type: RuntimeDefault
           volumeMounts:
-          - mountPath: /whisker-key-pair
-            name: whisker-key-pair
-            readOnly: true
+            - mountPath: /whisker-key-pair
+              name: whisker-key-pair
+              readOnly: true
       nodeSelector:
         kubernetes.io/os: linux
       serviceAccountName: whisker
@@ -103,12 +103,10 @@ spec:
   commonName: whisker-backend
   dnsNames:
     - whisker-backend
-
   usages:
     - client auth
     - digital signature
     - key encipherment
-
   issuerRef:
     name: cluster-ca
     kind: ClusterIssuer

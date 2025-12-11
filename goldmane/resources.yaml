@@ -56,15 +56,15 @@ spec:
           livenessProbe:
             exec:
               command:
-              - /health
-              - -live
+                - /health
+                - -live
             periodSeconds: 60
             timeoutSeconds: 5
           readinessProbe:
             exec:
               command:
-              - /health
-              - -ready
+                - /health
+                - -ready
             periodSeconds: 30
             timeoutSeconds: 5
           securityContext:
@@ -79,12 +79,12 @@ spec:
             seccompProfile:
               type: RuntimeDefault
           volumeMounts:
-          - mountPath: /config
-            name: config
-            readOnly: true
-          - mountPath: /goldmane-key-pair
-            name: goldmane-key-pair
-            readOnly: true
+            - mountPath: /config
+              name: config
+              readOnly: true
+            - mountPath: /goldmane-key-pair
+              name: goldmane-key-pair
+              readOnly: true
       nodeSelector:
         kubernetes.io/os: linux
       serviceAccountName: goldmane
@@ -108,12 +108,10 @@ spec:
   commonName: goldmane
   dnsNames:
     - goldmane
-
   usages:
     - server auth
     - digital signature
     - key encipherment
-
   issuerRef:
     name: cluster-ca
     kind: ClusterIssuer

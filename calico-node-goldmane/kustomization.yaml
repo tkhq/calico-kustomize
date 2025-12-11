@@ -1,9 +1,7 @@
 apiVersion: kustomize.config.k8s.io/v1alpha1
 kind: Component
-
 resources:
   - calico-node-cert.yaml
-
 patches:
   - patch: |
       apiVersion: apps/v1

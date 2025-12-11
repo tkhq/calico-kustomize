@@ -7,7 +7,6 @@ spec:
   commonName: calico-node
   dnsNames:
     - calico-node
-
   issuerRef:
     name: cluster-ca
     kind: ClusterIssuer
