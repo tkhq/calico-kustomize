@@ -40,3 +40,4 @@ patches:
         name: default
       spec:
         flowLogsGoldmaneServer: goldmane:7443
+        flowLogsFlushInterval: '15s'
