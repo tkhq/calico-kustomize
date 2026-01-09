@@ -12,4 +12,4 @@ configMapGenerator:
       - config.json={"emitFlows":false}
 images:
   - name: docker.io/calico/goldmane
-    newTag: v3.31.2@sha256:136bceefc37255c130ada27a333d6bbb62fe3504ebfbf07dd6551f231279007d
+    newTag: v3.31.3@sha256:62316a0ff76734e2026ca79246b02a6578b62ac63f442cbb54ecb55a76f17164
