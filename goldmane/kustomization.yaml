@@ -3,6 +3,7 @@ kind: Kustomization
 
 commonLabels:
   app.kubernetes.io/component: goldmane
+  app.kubernetes.io/name: calico
 resources:
   - resources.yaml
 
