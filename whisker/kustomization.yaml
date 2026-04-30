@@ -7,6 +7,6 @@ resources:
   - resources.yaml
 images:
   - name: docker.io/calico/whisker
-    newTag: v3.31.4@sha256:9690cd395efad501f2e0c40ce4969d87b736ae2e5ed454644e7b0fd8f756bfbc
+    newTag: v3.32.0@sha256:9b8720846afaa915eea527fa639c9f6ca676aa627864cf68a882e728b6415439
   - name: docker.io/calico/whisker-backend
-    newTag: v3.31.4@sha256:a602fb51a5e39fe224c534cceaec936545adddc467a37f3139dab5205b8bf7dd
+    newTag: v3.32.0@sha256:16944e2d27c933052da553239f8725b6f8a675e575e323238e15edb6a32231bb
