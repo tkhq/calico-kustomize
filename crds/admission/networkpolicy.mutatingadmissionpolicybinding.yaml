@@ -1,5 +1,5 @@
 # This MutatingAdmissionPolicyBinding binds the policy types defaulting mutation to the relevant resources.
-apiVersion: admissionregistration.k8s.io/v1beta1
+apiVersion: admissionregistration.k8s.io/v1
 kind: MutatingAdmissionPolicyBinding
 metadata:
   name: set-policytypes-binding

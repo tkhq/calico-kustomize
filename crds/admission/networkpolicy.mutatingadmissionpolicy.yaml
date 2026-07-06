@@ -1,5 +1,5 @@
 # This MutatingAdmissionPolicy defaults the types/policyTypes field on Calico policy resources.
-apiVersion: admissionregistration.k8s.io/v1beta1
+apiVersion: admissionregistration.k8s.io/v1
 kind: MutatingAdmissionPolicy
 metadata:
   name: "policytypes.policy.projectcalico.org"
