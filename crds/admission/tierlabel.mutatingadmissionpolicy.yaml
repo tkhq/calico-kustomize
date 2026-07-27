@@ -1,6 +1,6 @@
 # This MutatingAdmissionPolicy defaults the spec.tier field to "default" if not specified,
 # and sets the projectcalico.org/tier label to match.
-apiVersion: admissionregistration.k8s.io/v1beta1
+apiVersion: admissionregistration.k8s.io/v1
 kind: MutatingAdmissionPolicy
 metadata:
   name: "tierlabel.policy.projectcalico.org"
