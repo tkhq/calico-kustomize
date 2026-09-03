@@ -121,6 +121,17 @@ rules:
     verbs:
       - get
       - update
+  - # Needed for policy name migrator.
+    apiGroups: ["projectcalico.org", "crd.projectcalico.org"]
+    resources:
+      - networkpolicies
+      - stagednetworkpolicies
+      - globalnetworkpolicies
+      - stagedglobalnetworkpolicies
+    verbs:
+      - watch
+      - list
+      - get
 ---
 kind: ClusterRoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
