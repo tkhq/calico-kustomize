@@ -134,6 +134,35 @@ subjects:
   - kind: ServiceAccount
     name: calico-kube-controllers
 ---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: calico-kube-controllers
+rules:
+  - # Needed for migration controller to watch calico-node.
+    apiGroups: [apps]
+    resources:
+      - daemonsets
+      - deployments
+    resourceNames:
+      - calico-node
+    verbs:
+      - get
+      - list
+      - watch
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: calico-kube-controllers
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: calico-kube-controllers
+subjects:
+  - kind: ServiceAccount
+    name: calico-kube-controllers
+---
 # See https://github.com/projectcalico/kube-controllers
 apiVersion: apps/v1
 kind: Deployment
